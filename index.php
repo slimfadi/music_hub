@@ -1,15 +1,11 @@
 <?php
 $output="";
-$dir = getcwd()."/music";
 //$dir = "C:/wamp/www/mus/music";
 //$dir = "/home/slimfadi/webapps/music/music";
 //include("/var/www/mus/music/Dropbox/music/bootstrap.php");
 require getcwd().'/Dropbox/music/metaData.php';
-
-$dh = opendir($dir);
 $count=0;
-$scan=scandir($dir);
-$title="My Music";
+$title="My Music Hub";
 $script="";
 $column_count=1;
 foreach($content as $file) {
@@ -79,7 +75,6 @@ if (isset($_GET['playlist'])) {
 if(isset($_GET['filter']) && !isset($_GET['song'])){
 	$title=$_GET['filter'];
 }
-closedir($dh);
 ?>
 
 
@@ -99,7 +94,7 @@ closedir($dh);
 		<script type="text/javascript" src="public/js/jplayer.playlist.min.js"></script>
 		<script type="text/javascript" src="public/js/jquery.cookie.js"></script>
 		<script type="text/javascript" src="public/js/html5uploader.js"></script>
-		<script type="text/javascript" src="js.js"></script>
+		<script type="text/javascript" src="public/js/js.js"></script>
 		<title><?php echo $title ?></title>
 		<?php 
 		echo $script; 
