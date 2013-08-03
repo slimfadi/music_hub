@@ -244,7 +244,6 @@ function activate_keys(){
 			$(".jp-playlist-item-remove").first().click();
 		}
 	});
-	uploader = new uploader('big_filter', null, 'upload_file.php', null);
 }
 function scroll_to_active(){
 	if($(".blue").length>0){
