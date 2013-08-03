@@ -88,19 +88,14 @@ closedir($dh);
 	<head>
 	<meta charset=utf-8 />
 	<meta name="viewport" content="width=480, initial-scale=1.0">
-	<!-- Website Design By: www.happyworm.com -->
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<link href="skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
 		<link href="style.css" rel="stylesheet" type="text/css" />
-		<link href="jquery-ui/css/jquery-ui-1.8.24.custom.css" rel="stylesheet" type="text/css" />
 		<link href="public/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src="jquery-ui/js/jquery-1.8.2.min.js"></script>
-		<script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.24.custom.min.js"></script>
 		<script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
 		<script type="text/javascript" src="js/jplayer.playlist.min.js"></script>
 		<script type="text/javascript" src="jquery.cookie.js"></script>
 		<script type="text/javascript" src="public/js/html5uploader.js"></script>
-		<script type="text/javascript" src="public/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js.js"></script>
 		<title><?php echo $title ?></title>
 		<?php 
@@ -188,11 +183,5 @@ closedir($dh);
 		<div id="all_songs">
 		<?php echo $output; ?>
 		</div>
-		<script type="text/javascript">
-			var sc_project=7970449; 
-			var sc_invisible=1; 
-			var sc_security="7b59d1fc"; 
-		</script>
-		<script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>		
 	</body>
 </html>
