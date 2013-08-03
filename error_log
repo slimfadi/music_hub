@@ -1,0 +1,27 @@
+[26-May-2012 09:45:06] PHP Warning:  unlink(/home/fadiwebs/public_html/music/music/a\\ a.mp3) [<a href='function.unlink'>function.unlink</a>]: No such file or directory in /home/fadiwebs/public_html/music/remove_song.php on line 3
+[26-May-2012 09:47:40] PHP Warning:  unlink(/home/fadiwebs/public_html/music/music/a\\ a.mp3) [<a href='function.unlink'>function.unlink</a>]: No such file or directory in /home/fadiwebs/public_html/music/remove_song.php on line 3
+[28-May-2012 01:41:29] PHP Warning:  unlink(/home/fadiwebs/public_html/music/music/121 Las Ketchup - Aserejé (The Ketchup Song).mp3) [<a href='function.unlink'>function.unlink</a>]: No such file or directory in /home/fadiwebs/public_html/music/remove_song.php on line 3
+[28-May-2012 07:13:27] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/fadiwebs/public_html/music/index.php on line 236
+[28-May-2012 07:14:06] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/fadiwebs/public_html/music/index.php on line 235
+[28-May-2012 07:20:53] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ',' or ';' in /home/fadiwebs/public_html/music/index.php on line 235
+[28-May-2012 12:27:59] PHP Parse error:  syntax error, unexpected T_IF in /home/fadiwebs/public_html/music/index.php on line 162
+[28-May-2012 13:11:32] PHP Parse error:  syntax error, unexpected T_ECHO, expecting ',' or ';' in /home/fadiwebs/public_html/music/index.php on line 148
+[28-May-2012 13:16:44] PHP Parse error:  syntax error, unexpected T_STRING, expecting ',' or ';' in /home/fadiwebs/public_html/music/index.php on line 147
+[28-May-2012 13:19:32] PHP Parse error:  syntax error, unexpected '(', expecting T_VARIABLE or '$' in /home/fadiwebs/public_html/music/index.php on line 147
+[30-May-2012 03:22:30] PHP Warning:  unlink(/home/fadiwebs/public_html/music/music/) [<a href='function.unlink'>function.unlink</a>]: Is a directory in /home/fadiwebs/public_html/music/remove_song.php on line 3
+[04-Jun-2012 05:37:51] PHP Warning:  Invalid argument supplied for foreach() in /home/fadiwebs/public_html/music/played_songs.php on line 8
+[04-Jun-2012 05:38:16] PHP Warning:  Invalid argument supplied for foreach() in /home/fadiwebs/public_html/music/played_songs.php on line 8
+[04-Jun-2012 05:38:29] PHP Warning:  Invalid argument supplied for foreach() in /home/fadiwebs/public_html/music/played_songs.php on line 8
+[04-Jun-2012 05:38:31] PHP Warning:  Invalid argument supplied for foreach() in /home/fadiwebs/public_html/music/played_songs.php on line 8
+[04-Jun-2012 05:43:36] PHP Warning:  opendir(/home/fadiwebs/public_html/music/music) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: No such file or directory in /home/fadiwebs/public_html/music/index.php on line 4
+[04-Jun-2012 05:43:36] PHP Warning:  scandir(/home/fadiwebs/public_html/music/music) [<a href='function.scandir'>function.scandir</a>]: failed to open dir: No such file or directory in /home/fadiwebs/public_html/music/index.php on line 6
+[04-Jun-2012 05:43:36] PHP Warning:  scandir() [<a href='function.scandir'>function.scandir</a>]: (errno 2): No such file or directory in /home/fadiwebs/public_html/music/index.php on line 6
+[04-Jun-2012 05:43:36] PHP Warning:  Invalid argument supplied for foreach() in /home/fadiwebs/public_html/music/index.php on line 10
+[04-Jun-2012 05:43:36] PHP Warning:  closedir(): supplied argument is not a valid Directory resource in /home/fadiwebs/public_html/music/index.php on line 30
+[07-Jun-2012 02:45:04] PHP Warning:  rename(/home/fadiwebs/public_html/music/music/Black Lab-This Night.mp3,/home/fadiwebs/public_html/music/music/Black Lab - This Night.mp3) [<a href='function.rename'>function.rename</a>]: No such file or directory in /home/fadiwebs/public_html/music/rename_song.php on line 4
+[10-Jun-2012 05:13:05] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Too many connections in /home/fadiwebs/public_html/music/save_song_played.php on line 2
+[12-Jun-2012 02:20:16] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Too many connections in /home/fadiwebs/public_html/music/played_songs.php on line 2
+[12-Jun-2012 02:20:19] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Too many connections in /home/fadiwebs/public_html/music/played_songs.php on line 2
+[12-Jun-2012 09:11:00] PHP Warning:  rename(/home/fadiwebs/public_html/music/music/Armin van Buuren feat Van Velzen â€“ - Broken Tonight.mp3,/home/fadiwebs/public_html/music/music/Armin van Buuren feat Van Velzen - Broken Tonight.mp3) [<a href='function.rename'>function.rename</a>]: No such file or directory in /home/fadiwebs/public_html/music/rename_song.php on line 4
+[12-Jun-2012 09:16:15] PHP Warning:  rename(/home/fadiwebs/public_html/music/music/LMFAO Feat. Lauren Bennett And Goon Rock - Party Rock Anthem.mp3,/home/fadiwebs/public_html/music/music/LMFAO ft Lauren Bennett ft Goon Rock - Party Rock Anthem.mp3) [<a href='function.rename'>function.rename</a>]: No such file or directory in /home/fadiwebs/public_html/music/rename_song.php on line 4
+[12-Jun-2012 12:32:13] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Too many connections in /home/fadiwebs/public_html/music/save_song_played.php on line 2
