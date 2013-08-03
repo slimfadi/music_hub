@@ -4,6 +4,10 @@ $output="";
 //$dir = "/home/slimfadi/webapps/music/music";
 //include("/var/www/mus/music/Dropbox/music/bootstrap.php");
 require getcwd().'/Dropbox/music/metaData.php';
+<<<<<<< HEAD
+=======
+$dh = opendir($dir);
+>>>>>>> 7bf64bcd12a02127e06590215ba6336e1079cfd4
 $count=0;
 $title="My Music Hub";
 $script="";
@@ -83,10 +87,10 @@ if(isset($_GET['filter']) && !isset($_GET['song'])){
 	<head>
 	<meta charset=utf-8 />
 	<meta name="viewport" content="width=480, initial-scale=1.0">
-	<!-- Website Design By: www.happyworm.com -->
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 		<link href="skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
 		<link href="style.css" rel="stylesheet" type="text/css" />
+<<<<<<< HEAD
 
 		<link href="public/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -95,6 +99,14 @@ if(isset($_GET['filter']) && !isset($_GET['song'])){
 		<script type="text/javascript" src="public/js/jquery.cookie.js"></script>
 		<script type="text/javascript" src="public/js/html5uploader.js"></script>
 		<script type="text/javascript" src="public/js/js.js"></script>
+=======
+		<link href="public/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+		<script type="text/javascript" src="js/jplayer.playlist.min.js"></script>
+		<script type="text/javascript" src="jquery.cookie.js"></script>
+		<script type="text/javascript" src="public/js/html5uploader.js"></script>
+		<script type="text/javascript" src="js.js"></script>
+>>>>>>> 7bf64bcd12a02127e06590215ba6336e1079cfd4
 		<title><?php echo $title ?></title>
 		<?php 
 		echo $script; 
@@ -181,11 +193,5 @@ if(isset($_GET['filter']) && !isset($_GET['song'])){
 		<div id="all_songs">
 		<?php echo $output; ?>
 		</div>
-		<script type="text/javascript">
-			var sc_project=7970449; 
-			var sc_invisible=1; 
-			var sc_security="7b59d1fc"; 
-		</script>
-		<script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>		
 	</body>
 </html>
