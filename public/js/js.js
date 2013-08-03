@@ -6,13 +6,6 @@ jQuery.expr[':'].contains = function(a, i, m) {
   return jQuery(a).text().toUpperCase()
 	  .indexOf(m[3].toUpperCase()) >= 0;
 };
-function bullseys(song){
-	if (!$.cookie("dont")){
-		$.post("save_song_played.php",{song:song},function(out){
-			//alert(out);
-		});
-	}
-};
 
 $(document).ready(function(){
 	window_height=$(document).height();
@@ -160,17 +153,6 @@ $(document).ready(function(){
 		activate_keys();
 	});
 	
-	
-	
-	$("#copy").live("paste",function(){
-		setTimeout(function(){
-			name=$("#song_name").val();
-			$.post("get_file.php",{link:$("#copy").val(),name:name},function(out){
-				alert(out);
-			})
-		},1000);
-	});
-	
 	$("#mode").click(function(){
 		$(this).toggleClass("mode0");
 		$(this).toggleClass("mode1");
@@ -179,12 +161,6 @@ $(document).ready(function(){
 		} else {
 			$(".jp-shuffle,.jp-repeat").show();
 		}
-	});
-	$(".download_link").click(function(){
-		file=$(this).parent().attr("file");
-		var ifrm = document.getElementById('download_frame');
-	    ifrm.src = "download.php?path=music/"+file;
-	    return false;
 	});
 	$(".jp-next").click(function(){
 		if ($("#mode").hasClass("mode0")){
@@ -205,14 +181,6 @@ $(document).ready(function(){
 			},3000);
 		}
 	});
-	$(".remove_link").click(function(){
-		song=$(this).parent().children("p").text()+".mp3";
-		this_=$(this);
-		$.post("remove_song.php",{song:song},function(){
-			this_.parent().remove();
-		});
-		return false;
-	});
 });
 function activate_keys(){
 	$("body").keydown(function(e){
@@ -221,76 +189,59 @@ function activate_keys(){
 			var number=Math.floor(Math.random()*songs_count)+1;
 			$("#song_"+number).click();
 			scroll_to_active();
-			register_key("r");
 		}
 		if(e.which==84){
 			scroll_to_top();
-			register_key("t");
 		}
 		if(e.which==68){
 			scroll_down();
-			register_key("d");
 		}
 		if(e.which==70){
 			$(".filter:visible").first().focus();
-			register_key("f");
 			return false;
 		}
 		if(e.which==67){
 			scroll_to_active();
-			register_key("c");
 		}
 		if(e.which==85){
 			scroll_up();
-			register_key("u");
 		}
 		if(e.which==83){
 			$(".song").show();
-			register_key("s");
 		}
 		if(e.which==86){
 			random_from_visible();
-			register_key("v");
 		}
 		if(e.which==72){
 			hide_header();
-			register_key("h");
 		}
 		if(e.which==73){
 			$("#inputs").toggle();
-			register_key("i");
 		}
 		if(e.which==80){
 			$(".jp-play:visible,.jp-pause:visible").click();
-			register_key("p");
 		}
 		if(e.which==78){
 			$(".jp-next").click();
-			register_key("n");
 		}
 		if(e.which==66){
 			$(".jp-previous").click();
-			register_key("b");
 		}
 		if(e.which==187){
 			current=$(".jp-volume-bar-value").width();
 			new_vol=(current/46)+0.05;
 			$("#jquery_jplayer_2").jPlayer("volume",new_vol);
-			register_key("+");
 		}
 		if(e.which==189){
 			current=$(".jp-volume-bar-value").width();
 			new_vol=(current/46)-0.05;
 			$("#jquery_jplayer_2").jPlayer("volume",new_vol);
-			register_key("-");
 		}
 		if(e.which==76){
 			$("#mode").click();
-			register_key("l");
 		}
 		if(e.which==68){
 			$(".jp-playlist-item-remove").first().click();
-			register_key("d");
 		}
 	});
 	uploader = new uploader('big_filter', null, 'upload_file.php', null);
@@ -315,13 +266,6 @@ function play_random_song(){
 	var songs_count=$(".song").length;
 	var number=Math.floor(Math.random()*songs_count)+1;
 	$("#song_"+number).click();
-}
-function register_key(key){
-	if (!$.cookie("dont")){
-		$.post("register_key.php",{key:key},function(){
-
-		});
-	}
 }
 function scroll_to_top (){
 	$('body,html').stop().animate({
