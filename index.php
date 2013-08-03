@@ -88,7 +88,10 @@ if(isset($_GET['filter']) && !isset($_GET['song'])){
 		<link href="public/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="public/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-		<script type="text/javascript" src="public/js/plugins.js"></script>
+		<script type="text/javascript" src="public/js/jquery.jplayer.min.js"></script>
+		<script type="text/javascript" src="public/js/jplayer.playlist.min.js"></script>
+		<script type="text/javascript" src="public/js/jquery.cookie.js"></script>
+		<script type="text/javascript" src="public/js/html5uploader.js"></script>
 		<script type="text/javascript" src="public/js/js.js"></script>
 		<title><?php echo $title ?></title>
 		<?php 
