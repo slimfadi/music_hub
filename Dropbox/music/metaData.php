@@ -5,7 +5,6 @@
  * @link https://www.dropbox.com/developers/reference/api#metadata
  * @link https://github.com/BenTheDesigner/Dropbox/blob/master/Dropbox/API.php#L170-192
  */
-
 // Require the bootstrap
 require_once('bootstrap.php');
 
@@ -20,4 +19,3 @@ $content= (array) $body['contents'];
 //echo "<pre>";
 //print_r($metaData);
 // Dump the output
-
