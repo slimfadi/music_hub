@@ -4,7 +4,6 @@ $dir = getcwd()."/music";
 //$dir = "C:/wamp/www/mus/music";
 //$dir = "/home/slimfadi/webapps/music/music";
 //include("/var/www/mus/music/Dropbox/music/bootstrap.php");
-echo getcwd();
 require getcwd().'/Dropbox/music/metaData.php';
 $dh = opendir($dir);
 $count=0;
