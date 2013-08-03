@@ -1,10 +1,10 @@
 <?php
 $output="";
-$dir = "/var/www/mus/music";
+$dir = getcwd()."/music";
 //$dir = "C:/wamp/www/mus/music";
 //$dir = "/home/slimfadi/webapps/music/music";
 //include("/var/www/mus/music/Dropbox/music/bootstrap.php");
-require '/var/www/mus/Dropbox/music/metaData.php';
+require getcwd().'/Dropbox/music/metaData.php';
 
 $dh = opendir($dir);
 $count=0;
