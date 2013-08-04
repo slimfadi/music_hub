@@ -2,69 +2,44 @@
 require getcwd().'/Dropbox/music/metaData.php';
 $output="";
 $count=0;
-$title="My Music Hub";
-$script="";
 $column_count=1;
+$data=array();
+$songs=array();
+$data['title']="My Music Hub";
+$data['song_requested']="";
+$data['playlist_requested']=array();
+$data['history']="";
 foreach($content as $file) {
 	$file=(array) $file;
-
 	$count++;
-	$file1=str_replace(".mp3","",$file['path']);
-	$file1=str_replace("/","",$file['path']);
-	$tooltip=$file1;
+	$songs[$count]['name']=str_replace(array(".mp3","/"),"",$file['path']);
+	$songs[$count]['path']=$file['path'];
 	if (isset($_GET['song']) && (int)$_GET['song']==$count){
-		$title=$file1;
-		$script= '<script>
-					$("document").ready(function(){
-						setTimeout(function(){
-							$("#song_'.$count.'").click();
-							scroll_to_active();
-						},1000);
-					})
-				</script>';
-	}
-	if ($column_count==1) {
-		$output.='<div class="row-fluid show-grid">';
-	}
-	$output.='<a href="javascript:;" file="'.$file['path'].'" title="'.$tooltip.'" class="song span3" id="song_'.$count.'" ><p>'.$file1.'</p><span class="song_number">'.$count.'</span><span class="download_link"><img src="http://www.cs.umd.edu/hcil/counterpoint/download/tutorial/down_arrow.gif" style="margin-top: 3px;"></span></a>';
-	if ($column_count==4) {
-		$output.='</div>';
-		$column_count=1;
-	} else {
-		$column_count++;
+		$data['title']=$songs[$count]['name'];
+		$data['song_requested']=$count;
 	}
 }
 
 if (isset($_GET['playlist'])) {
 	$playlist=explode(",",$_GET['playlist']);
-	$script="
-		<script>
-		$('document').ready(function(){
-			setTimeout(function(){
-				list=new Array();
-				$('#hide_playlist').show();
-				";
-				foreach($playlist as $song) {
-					$script.= "	song=$('#song_".$song."').attr('file');
-							song_name=song.replace('.mp3','');
-							object= new Object();
-							object.title=song_name;
-							object.mp3='music/'+song;
-							list.push(object);
-					";
-				}
-	$script.= " playlist.setPlaylist(list);
-				setTimeout(function(){
-					$('.jp-play').click();
-					$('.jp-playlist ul').sortable();
-				},500);
-			},1000);
-		});
-		</script>
-	";
+	foreach($playlist as $song) {
+		array_push($data['playlist_requested'], $song);
+	}
 }
-?>
 
+if (isset($_COOKIE['history'])) {
+	$history=$_COOKIE['history'];
+	$history_array=explode("||",$history);
+	foreach($history_array as $song) {
+		$song_info=explode("&&",$song);
+		$song_name=$song_info[0];
+		$song_path=$song_info[1];
+		$data['history'] .= "<li><a href='javascript:;' class='song' file='".$song_path."'>".str_replace(".mp3","",$song_name)."</a></li>";
+	}
+}
+
+echo '<script>var a='.json_encode($songs).'; var data='.json_encode($data).'</script>';
+?>
 
 <!DOCTYPE html>
 <html>
@@ -75,30 +50,19 @@ if (isset($_GET['playlist'])) {
 		<link href="skin/blue.monday/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />
 		<link href="public/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="public/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-		<title><?php echo $title ?></title>
+		<title><?php echo $data['title'] ?></title>
 	</head>
 	<body>
 		<div id="history">
 			<p style="margin: 5px 0;font-family: arial;text-align: center;">History</p>
 			<ul>
-				<?php 
-					if (isset($_COOKIE['history'])) {
-						$history=$_COOKIE['history'];
-						$history_array=explode("||",$history);
-						foreach($history_array as $song) {
-							$song_info=explode("&&",$song);
-							$song_name=$song_info[0];
-							$song_path=$song_info[1];
-							echo "<li><a href='javascript:;' class='song' file='".$song_path."'>".str_replace(".mp3","",$song_name)."</a></li>";
-						}
-					}
-				?>
+				<?php echo $data['history']; ?>
 			</ul>
 			<div id="history_close"></div>
 		</div>
 		
 		<div id="header" style="position:fixed;top:0px; width:100%;left:0;z-index:10;background:#EEE;height:75px;">
-			<div class="row-fluid">
+			<div class="row-fluid" style="width: 425px;">
 				<div class="span5">
 				<div id="jquery_jplayer_2" class="jp-jplayer"></div>
 				<div id="jp_container_2" class="jp-audio">
@@ -132,9 +96,7 @@ if (isset($_GET['playlist'])) {
 					</div>
 				</div>
 				</div>
-				<div id="mode" class="mode0 span1" id="mode">
-					Playlist
-				</div>
+				<div id="mode" class="mode0 span1" id="mode">Playlist</div>
 				<input class="filter span4" id="big_filter" placeholder="Filter" />
 			</div>
 		</div>
@@ -144,8 +106,37 @@ if (isset($_GET['playlist'])) {
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script type="text/javascript" src="public/js/plugins.js"></script>
 		<script type="text/javascript" src="public/js/js.js"></script>
-		<?php 
-			echo $script; 
-		?>
+		<script type="text/javascript">
+			$("document").ready(function(){
+				var counter=0;
+				for (key in a) {
+					if (counter%4 == 0) {
+						$("#all_songs").append('<div class="row-fluid show-grid songs_row"></div>');
+					}
+					var song_number=counter+1;
+					$(".songs_row").last().append('<a href="javascript:;" file="'+a[song_number]['path']+'" title="'+a[song_number]['name']+'" class="song span3" id="song_'+song_number+'" ><p>'+a[song_number]['name']+'</p><span class="song_number">'+song_number+'</span></a>');
+					counter++;
+				}
+				if(data['song_requested']) {
+					setTimeout(function(){
+						$("#song_"+data['song_requested']).click();
+						scroll_to_active();
+					},1000);
+				}
+
+				$("#mode").click();
+				setTimeout(function(){
+					list=new Array();
+					$('#hide_playlist').show();
+
+					for(var i =0 ;i<data['playlist_requested'].length;i++) {
+						song=$('#song_'+data['playlist_requested'][i]).click();
+					}
+				},2000,function(){
+					console.log(1)
+					$('.jp-play').click();
+				});
+			});
+		</script>
 	</body>
 </html>

@@ -22,13 +22,18 @@ $(document).ready(function(){
 		$(".song").removeClass("blue");
 		$(this).addClass("blue");
 		path=$(this).attr("file");
-		this_song=$(this);
-		song_name=this_song.children("p").text().replace(".mp3","");
-		if ($(this).parents("#history").length>0) {
-		  song_name=$(this).text();
-		}
+		
 		$.post("Dropbox/music/getlink.php",{path:path},function(song){
 			
+			var this_song=$(this);
+
+			song_array=song.split("/");
+			song_name=decodeURIComponent(song_array[song_array.length-1].replace(".mp3",""));
+			
+			if ($(this).parents("#history").length>0) {
+			  song_name=$(this).text();
+			}
+
 			if ($("#mode").hasClass("mode0")) {
 				$("#inner_header p").text(song_name);
 				playlist.setPlaylist([
@@ -51,7 +56,7 @@ $(document).ready(function(){
 				if($(".jp-playlist li").length > 1 ) {
 					$('#hide_playlist').show();
 				}
-				$(".jp-playlist ul").sortable({
+				/*$(".jp-playlist ul").sortable({
 					placeholder: "ui-state-highlight",
 					update:function(event,ui){
 						list=new Array();
@@ -65,7 +70,7 @@ $(document).ready(function(){
 						});
 						playlist.setPlaylist(list);
 					}
-				});
+				});*/
 			}
 			add_to_history(song,song_name,path);
 		})
