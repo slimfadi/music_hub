@@ -1,9 +1,6 @@
 <?php
-$output="";
-//$dir = "C:/wamp/www/mus/music";
-//$dir = "/home/slimfadi/webapps/music/music";
-//include("/var/www/mus/music/Dropbox/music/bootstrap.php");
 require getcwd().'/Dropbox/music/metaData.php';
+$output="";
 $count=0;
 $title="My Music Hub";
 $script="";
@@ -26,18 +23,12 @@ foreach($content as $file) {
 					})
 				</script>';
 	}
-	$remove_link="";
-	if (isset($_COOKIE['fadi'])) {
-		$remove_link="<span class='remove_link'>X</span>";
-	}
 	if ($column_count==1) {
 		$output.='<div class="row-fluid show-grid">';
 	}
-	$output.='<a href="javascript:;" file="'.$file['path'].'" title="'.$tooltip.'" class="song span3" id="song_'.$count.'" ><p>'.$file1.'</p><span class="song_number">'.$count.'</span><span class="download_link"><img src="http://www.cs.umd.edu/hcil/counterpoint/download/tutorial/down_arrow.gif" style="margin-top: 3px;"></span>'.$remove_link.'</a>';
+	$output.='<a href="javascript:;" file="'.$file['path'].'" title="'.$tooltip.'" class="song span3" id="song_'.$count.'" ><p>'.$file1.'</p><span class="song_number">'.$count.'</span><span class="download_link"><img src="http://www.cs.umd.edu/hcil/counterpoint/download/tutorial/down_arrow.gif" style="margin-top: 3px;"></span></a>';
 	if ($column_count==4) {
 		$output.='</div>';
-	}
-	if ($column_count == 4) {
 		$column_count=1;
 	} else {
 		$column_count++;
@@ -72,9 +63,6 @@ if (isset($_GET['playlist'])) {
 		</script>
 	";
 }
-if(isset($_GET['filter']) && !isset($_GET['song'])){
-	$title=$_GET['filter'];
-}
 ?>
 
 
@@ -88,15 +76,10 @@ if(isset($_GET['filter']) && !isset($_GET['song'])){
 		<link href="public/css/style.css" rel="stylesheet" type="text/css" />
 		<link href="public/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 		<title><?php echo $title ?></title>
-		<?php 
-		echo $script; 
-		?>
 	</head>
 	<body>
-		<iframe id="download_frame" style="display:none"></iframe>
-		<div id="modal" style="position:absolute;top:0;left:0;width:100%;height:900px;background:#f5f5f5;z-index:99;"></div>
 		<div id="history">
-		<p style="margin: 5px 0;font-family: arial;text-align: center;">History</p>
+			<p style="margin: 5px 0;font-family: arial;text-align: center;">History</p>
 			<ul>
 				<?php 
 					if (isset($_COOKIE['history'])) {
@@ -121,34 +104,24 @@ if(isset($_GET['filter']) && !isset($_GET['song'])){
 				<div id="jp_container_2" class="jp-audio">
 					<div class="jp-type-playlist">
 						<div class="jp-gui jp-interface">
-							<ul class="jp-controls">
+							<ul class="jp-controls" style="width:100px;">
 								<li><a href="javascript:;" class="jp-previous" tabindex="1">previous</a></li>
 								<li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
 								<li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
 								<li><a href="javascript:;" class="jp-next" tabindex="1">next</a></li>
-								<li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
-								<li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
-								<li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
-								<li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
 							</ul>
-							<div class="jp-progress">
+							<div class="jp-progress" style="left:125px; width:295px;">
 								<div class="jp-seek-bar">
 									<div class="jp-play-bar"></div>
 								</div>
 							</div>
-							<div class="jp-volume-bar">
+							<div class="jp-volume-bar" style="left:125px; width:295px; top:20px;">
 								<div class="jp-volume-bar-value"></div>
 							</div>
-							<div class="jp-time-holder">
+							<div class="jp-time-holder" style="left:125px; width:295px;">
 								<div class="jp-current-time"></div>
 								<div class="jp-duration"></div>
 							</div>
-							<ul class="jp-toggles">
-								<li><a href="javascript:;" class="jp-shuffle" tabindex="1" title="shuffle">shuffle</a></li>
-								<li><a href="javascript:;" class="jp-shuffle-off" tabindex="1" title="shuffle off">shuffle off</a></li>
-								<li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
-								<li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
-							</ul>
 						</div>
 						<div class="jp-playlist">
 							<div id="hide_playlist" style="display:none;float:right;margin: 0 4px; font-size: 9px; line-height: 32px;cursor:pointer;">hide</div>
@@ -164,17 +137,15 @@ if(isset($_GET['filter']) && !isset($_GET['song'])){
 				</div>
 				<input class="filter span4" id="big_filter" placeholder="Filter" />
 			</div>
-			<div id="inputs" style="float: right;top: 0;position: absolute;right:0;display:none;">
-				<input class="filter" placeholder="this does something"  />
-				<input id="copy" placeholder="this does nothing"  />
-				<input id="song_name" placeholder="this does nothing"  />
-			</div>
 		</div>
 		<div id="all_songs">
-		<?php echo $output; ?>
+			<?php echo $output; ?>
 		</div>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script type="text/javascript" src="public/js/plugins.js"></script>
 		<script type="text/javascript" src="public/js/js.js"></script>
+		<?php 
+			echo $script; 
+		?>
 	</body>
 </html>
