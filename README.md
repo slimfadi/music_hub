@@ -10,4 +10,4 @@ It also uses the Dropbox API to read the music files from the user's dropbox
 Coming soon...
 
 ##Demo
-[click here](http://musichub.fadi-webs.com)
+[click here](http://musichub.fadi-webs.com/music_hub)
