@@ -33,13 +33,9 @@ a{
 	color:black;
 }
 #mode{
-	//width:100px;
 	line-height:50px;
 	height:50px;
 	text-align:center;
-	//position:absolute;
-	//left:430px;
-	//top:20px;
 	font-family:arial;
 	cursor:pointer;
 	margin-top:20px;
@@ -50,7 +46,7 @@ a{
 	max-height:300px;
 	overflow:auto;
 }
-input {
+.filter {
 	display: block;
 	height: 23px;
 	border: 0;
@@ -58,11 +54,7 @@ input {
 	width:300px;
 	padding-left:3px;
 }
-#big_filter{
-	//position: absolute;
-	//top: 21px;
-	//left: 540px;
-	//width: 500px;
+.filter{
 	height: 47px;
 	line-height: 50px;
 	font-size: 25px;
@@ -70,12 +62,6 @@ input {
 	text-align:center;
 }
 
-.download_link{
-	position: absolute;
-	top: 0px;
-	right: 35px;
-	background: #A1C412;
-}
 #jp_container_2{
 	border:0;
 }
@@ -102,24 +88,13 @@ div.jp-audio div.jp-type-playlist div.jp-interface {
 #history .song {
 	color: black;
 	padding: 3px;
+	width:270px;
 }
 .song p {
 	padding:20px;
 	line-height: 20px;
 }
 
-#grid-mobile{
-	background: gray;
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	z-index: 999;
-	height: 28px;
-	cursor:pointer;
-}
-#history .song {
-	width:270px;
-}
 .song_number{
 	position:absolute; 
 	right:0px;
@@ -129,51 +104,7 @@ div.jp-audio div.jp-type-playlist div.jp-interface {
 	line-height: 21px;
 	width:25px;
 }
-.playlist_order{
-	position:absolute; 
-	right:24px;
-	border:solid 1px gray;
-	padding:5px;
-	border-radius:3px;
-	background-color:#d4595e;
-	top: 0px;
-	line-height: 21px;
-}
-.remove_song,.rename_song{
-	border: solid 1px gray;
-	background: #CCC;
-	cursor: pointer;
-	display: inline-block;
-	float: left;
-	margin:2px;
-}
-.button{
-	border: solid 1px gray;
-	border-radius: 5px;
-	padding: 5px;
-	cursor:pointer;
-	display:inline-block;
-}
-#show_all{
-	display:none;
-}
 
-.scroll_to_top{
-	position:fixed;
-	bottom:0px;
-	right:10px;
-	width:20px;
-	height:20px;
-	background-color:black;
-}
-.scroll_down{
-	position:fixed;
-	bottom:0px;
-	right:30px;
-	width:20px;
-	height:20px;
-	background-color:red;
-}
 .blue{
 	background:#659DF7;
 }
@@ -204,17 +135,14 @@ div.jp-audio div.jp-type-playlist div.jp-interface {
 	overflow-y:auto;
 	overflow-x:hidden;
 }
-#histdory li {
+#history li {
 	padding: 5px;
 	background: #CCC;
 	margin: 3px 0px;
 	border: solid 1px gray;
 	border-radius: 3px;
 }
-.remove_link{
-	position: absolute;
-	top: 0;
-	right: 59px;
-	padding: 3px;
-	background: black;
+#history a {
+	background: none;
+	box-shadow: none;
 }
