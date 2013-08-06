@@ -8,3 +8,6 @@ It also uses the Dropbox API to read the music files from the user's dropbox
 
 ##Installation
 Coming soon...
+
+##Demo
+[click here](http://musichub.fadi-webs.com)
