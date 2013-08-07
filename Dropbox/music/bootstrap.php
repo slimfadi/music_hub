@@ -42,7 +42,7 @@ $userID = 1;
 
 // Instantiate the database data store and connect
 $storage = new \Dropbox\OAuth\Storage\PDO($encrypter, $userID);
-$storage->connect('localhost', 'musichub_dropbox', 'slimfadi', 'slimfadi', 3306);
+$storage->connect('localhost', 'musichub_dropbox', 'root', '1212', 3306);
 // Optionally set the table name, default is dropbox_oauth_tokens
 // $storage->setTable('oauth_tokens');
 
